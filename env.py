@@ -17,4 +17,7 @@ def servidor(porta):
         data = text.encode('ascii')
         sock.sendto(data, address) # Datagrama de resposta enviado ao cliente
 
-de
+def cliente(porta):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    text = 'Mensagem para o servidor: Hora atual {}'.format(datetime.now())
+    data = text.encode('ascii')
