@@ -21,3 +21,7 @@ def cliente(porta):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     text = 'Mensagem para o servidor: Hora atual {}'.format(datetime.now())
     data = text.encode('ascii')
+    sock.sendto(data, ('127.0.0.1', porta)) # Possui uma mensagem e um endereço de destino
+    print('Cliente >> O sistema operacional do cliente informou o IP e porta {}'.format(sock.getsockname())) # O SO atribui um IP e porta, na saída da chamada getsockname()
+    data, address = sock.recvfrom(MAX_BYTES)
+    text = data.decode('ascii')
