@@ -25,3 +25,6 @@ def cliente(porta):
     print('Cliente >> O sistema operacional do cliente informou o IP e porta {}'.format(sock.getsockname())) # O SO atribui um IP e porta, na saída da chamada getsockname()
     data, address = sock.recvfrom(MAX_BYTES)
     text = data.decode('ascii')
+    print('Cliente >> O servidor {} respondeu {!r}'.format(address, text))
+
+if __name__ == '__main__':
