@@ -28,3 +28,8 @@ def cliente(porta):
     print('Cliente >> O servidor {} respondeu {!r}'.format(address, text))
 
 if __name__ == '__main__':
+    choices = {'cliente': cliente, 'servidor': servidor}
+    parser = argparse.ArgumentParser(description='Enviar e receber UDP localmente')
+    parser.add_argument('regra', choices=choices, help='Qual regra sera desempenhada.')
+    parser.add_argument('-p', metavar='PORTA', type=int, default=1060, help='Porta UDP (padrao: 1060)')
+    args = parser.parse_args()
