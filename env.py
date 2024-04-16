@@ -33,3 +33,5 @@ if __name__ == '__main__':
     parser.add_argument('regra', choices=choices, help='Qual regra sera desempenhada.')
     parser.add_argument('-p', metavar='PORTA', type=int, default=1060, help='Porta UDP (padrao: 1060)')
     args = parser.parse_args()
+    function = choices[args.regra]
+    function(args.p)
