@@ -9,4 +9,8 @@ def servidor(porta):
     print('Servidor >> Escutando no IP e porta {}'.format(sock.getsockname()))
     while True: # Executa repetidamente recvfrom()
     text = data.decode('ascii')
-        
+            print('Servidor >> O cliente no IP e porta {} enviou a mensagem {!r}'.format(address, text))
+        text = 'Mensagem para o cliente: O dado enviado possui comprimento de {} bytes'.format(len(data))
+        data = text.encode('ascii')
+        sock.sendto(data, address) # Datagrama de resposta enviado ao cliente
+
